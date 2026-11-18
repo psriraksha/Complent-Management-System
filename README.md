@@ -1,4 +1,4 @@
-<img width="1852" height="905" alt="Screenshot 2026-11-18 180211" src="https://github.com/user-attachments/assets/5bf1cf6c-bc49-4f0f-8604-d851b2fb127a" />
+
 # Complaint Management System
 
 A full-stack web app where users file complaints and track them until they're solved, and admins review, resolve and manage everything from one panel.
