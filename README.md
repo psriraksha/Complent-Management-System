@@ -1,3 +1,4 @@
+<img width="1852" height="905" alt="Screenshot 2026-11-18 180211" src="https://github.com/user-attachments/assets/5bf1cf6c-bc49-4f0f-8604-d851b2fb127a" />
 # Complaint Management System
 
 A full-stack web app where users file complaints and track them until they're solved, and admins review, resolve and manage everything from one panel.
@@ -26,6 +27,7 @@ Built with **React**, **Node.js / Express** and **MySQL**.
 
 <img width="1880" height="937" alt="Screenshot 2026-11-18 180248" src="https://github.com/user-attachments/assets/8e4482b5-256f-44f7-a60d-e38cbeb2cb7f" />
 <img width="1872" height="962" alt="Screenshot 2026-11-18 180225" src="https://github.com/user-attachments/assets/17971df2-5eb6-4aef-991c-adfd066eddb0" />
+<img width="1852" height="905" alt="Screenshot 2026-11-18 180211" src="https://github.com/user-attachments/assets/5bf1cf6c-bc49-4f0f-8604-d851b2fb127a" />
 
 
 ## Tech stack
