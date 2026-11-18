@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# Complaint Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack web app where users file complaints and track them until they're solved, and admins review, resolve and manage everything from one panel.
 
-## Available Scripts
+Built with **React**, **Node.js / Express** and **MySQL**.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+**For users**
+- Register and log in
+- File a complaint with a title and description
+- See all your complaints with a Pending / Solved status
+- Dashboard with totals at a glance
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**For admins**
+- Overview with complaint counts, registered users and resolution rate
+- View all complaints, search them and filter by status
+- Mark complaints as solved, reopen them, or delete them
+- View all users and deactivate or reactivate accounts (inactive users can't log in)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+**General**
+- Role-based access: users can't open admin pages and admins can't open user pages
+- Responsive layout that works on phones and laptops
 
-### `npm test`
+## Screenshots
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="1880" height="937" alt="Screenshot 2026-11-18 180248" src="https://github.com/user-attachments/assets/8e4482b5-256f-44f7-a60d-e38cbeb2cb7f" />
+<img width="1872" height="962" alt="Screenshot 2026-11-18 180225" src="https://github.com/user-attachments/assets/17971df2-5eb6-4aef-991c-adfd066eddb0" />
+<img width="1880" height="937" alt="Screenshot 2026-11-18 180248" src="https://github.com/user-attachments/assets/b9aa6829-a6b5-41ac-b3f9-2b7dac2886b2" />
 
-### `npm run build`
+## Tech stack
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Layer      | Technology                         |
+| ---------- | ---------------------------------- |
+| Frontend   | React, React Router, CSS           |
+| Backend    | Node.js, Express                   |
+| Database   | MySQL (`mysql2`)                   |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- Node.js 18 or later
+- MySQL or MariaDB running locally (for example through XAMPP)
 
-### `npm run eject`
+### 1. Set up the database
+1. Create a database named `complaint_system`.
+2. Import `database/complaint_system.sql` into it (phpMyAdmin → Import, or the `mysql` command line).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. Start the backend
+```bash
+cd backend
+npm install
+npm start
+```
+You should see `Database connected` followed by `Server running on http://localhost:5000`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If your MySQL user or password isn't the default (`root` with no password), change them in the `createPool` block in `backend/server.js`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 3. Start the frontend
+In a second terminal, from the project root:
+```bash
+npm install
+npm start
+```
+The app opens at http://localhost:3000.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Demo logins
 
-## Learn More
+| Role  | Username | Password   |
+| ----- | -------- | ---------- |
+| Admin | `admin`  | `admin123` |
+| User  | `user1`  | `user123`  |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Project structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+complaint-system/
+├── backend/
+│   └── server.js            Express API and MySQL connection
+├── database/
+│   └── complaint_system.sql Database schema and sample data
+├── screenshots/             Images used in this README
+└── src/
+    ├── api/api.js           API calls and session helpers
+    ├── components/          Layout, Sidebar, StatusBadge
+    ├── pages/               Login, Register, dashboards, complaints, users
+    ├── App.js               Routes and role-based route guard
+    └── App.css              All styling
+```
 
-### Code Splitting
+## API endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Method | Endpoint                      | Purpose                           |
+| ------ | ----------------------------- | --------------------------------- |
+| POST   | `/api/login`                  | Log in                            |
+| POST   | `/api/register`               | Create an account                 |
+| GET    | `/api/complaints`             | List complaints (`?user_id=` to filter) |
+| POST   | `/api/complaints`             | File a complaint                  |
+| PUT    | `/api/complaints/:id/status`  | Mark Pending or Solved            |
+| DELETE | `/api/complaints/:id`         | Delete a complaint                |
+| GET    | `/api/users`                  | List users                        |
+| PUT    | `/api/users/:id/status`       | Activate or deactivate a user     |
 
-### Analyzing the Bundle Size
+## Known limitations and next steps
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Passwords are stored as plain text. Next step: hash them with `bcrypt`.
+- Admin routes aren't protected on the server yet. Next step: JWT login tokens checked on each request.
+- Runs locally only; it hasn't been deployed.
