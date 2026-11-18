@@ -26,7 +26,7 @@ Built with **React**, **Node.js / Express** and **MySQL**.
 
 <img width="1880" height="937" alt="Screenshot 2026-11-18 180248" src="https://github.com/user-attachments/assets/8e4482b5-256f-44f7-a60d-e38cbeb2cb7f" />
 <img width="1872" height="962" alt="Screenshot 2026-11-18 180225" src="https://github.com/user-attachments/assets/17971df2-5eb6-4aef-991c-adfd066eddb0" />
-<img width="1880" height="937" alt="Screenshot 2026-11-18 180248" src="https://github.com/user-attachments/assets/b9aa6829-a6b5-41ac-b3f9-2b7dac2886b2" />
+
 
 ## Tech stack
 
